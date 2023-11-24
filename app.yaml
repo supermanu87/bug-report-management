@@ -7,3 +7,8 @@ runtime_config:
 env_variables:
   # Add any environment variables needed by your application
   CI_ENV: production
+
+
+build_env_variables:
+  GOOGLE_COMPOSER_VERSION: 2.1.9
+
