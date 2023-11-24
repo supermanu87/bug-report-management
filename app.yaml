@@ -1,0 +1,9 @@
+runtime: php
+env: flex
+
+runtime_config:
+  document_root: public
+
+env_variables:
+  # Add any environment variables needed by your application
+  CI_ENV: production
