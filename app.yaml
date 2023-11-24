@@ -3,11 +3,10 @@ env: standard
 
 runtime_config:
   document_root: public
-
+  skip_lockdown_document_root: true
 env_variables:
   # Add any environment variables needed by your application
   CI_ENV: production
-  app.sessionSavePath: /tmp/bug-reporter-management/ci4_session
 
 
 build_env_variables:
