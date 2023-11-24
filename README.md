@@ -1,1 +1,12 @@
-# bug-report-management
+# Bug Reporter Management
+
+## Descrizione applicazione
+
+
+
+## Casi d'uso
+
+
+## Setup
+
+
