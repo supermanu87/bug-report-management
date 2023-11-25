@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "80:80"
+    environment:
+      CI_ENVIRONMENT: development
+      MYSQL_DATABASE: bugdb
+      MYSQL_USER: reporter
+      MYSQL_PASSWORD: aewqewqda
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    restart: always  
+    environment:
+      MYSQL_DATABASE: bugdb
+      MYSQL_USER: reporter
+      MYSQL_PASSWORD: aewqewqda
+      MYSQL_ROOT_PASSWORD: Rr098Uyt!
+    volumes:
+      - ./database_dump/bugsdb_dump.sql:/docker-entrypoint-initdb.d/init.sql
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      container_name: pma
+      restart: always
+      environment:
+        PMA_ARBITRARY: 1
+        PMA_HOST: db
+        PMA_USER: reporter
+        PMA_PASSWORD: aewqewqda
+      ports:
+        - "8088:80"
