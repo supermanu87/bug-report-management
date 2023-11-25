@@ -11,6 +11,8 @@ env_variables:
   MYSQL_PASSWORD: AsbvTr14234Reder
   MYSQL_DATABASE: bugdb
   MYSQL_DSN: mysql:dbname=bugdb;unix_socket=/cloudsql/bug-reporter-management:europe-west1:bugdb
+beta_settings:
+  cloud_sql_instances: bug-reporter-management:europe-west1:bugdb
   
 
 
