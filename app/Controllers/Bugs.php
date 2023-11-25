@@ -11,6 +11,20 @@ use App\Models\BugsModel;
 class Bugs extends ResourceController
 {
     
+    // Return all bugs registered in the main view
+    public function index(){
+
+        $bugs_model = new BugsModel();
+        $all_bugs = $bugs_model->list();
+        
+        $title = SITE_TITLE . " - " . ENVIRONMENT;
+        $data = array();
+        $data["title"] = $title;
+        $data["bugs"] = $all_bugs["bugs"];
+        $data["api_version"] = (ENVIRONMENT === 'development') ? "API VERSION: " . API_VERSION : "";
+        
+        return view('welcome', $data);  
+    }
     
     // Return all bugs registered
     // Optional input parameter: 'query'

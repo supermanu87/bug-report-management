@@ -22,21 +22,53 @@ class BugsModel extends Model{
             $where = "bug_description LIKE '%".$query."%' OR reporter_first_name LIKE '%".$query."%' OR reporter_last_name LIKE '%".$query."%'";
             $this->builder->where($where);
         }
-        $result = $this->builder->get()->getResult();
+        $bugs = $this->builder->get()->getResult();
+        $result = array();
+        if(ENVIRONMENT === 'development'){
+            $result["api_version"] = API_VERSION;
+        }
+        $result["bugs"] = $bugs;
+        
         return $result;
     }
 
 
     public function add($data){
 
-        $result = $this->builder->insert($data);
-        if($result){
-            $bug_id = $this->db->insertID();
-            $bug = $this->get_bug_by_id($bug_id);
-            return ["status" => true, "message" => "Bug successfully stored", "inserted_bug" => $bug];
+        $response = array();
+        
+        try{
+
+            $result = $this->builder->insert($data);
+            if($result){
+                
+                $bug_id = $this->db->insertID();
+                $bug = $this->get_bug_by_id($bug_id);
+                
+                $response["status"] = true;
+                $response["message"] = "Bug successfully stored";
+                $response["inserted_bug"] = $bug;
+                
+                if(ENVIRONMENT === 'development'){
+                    $response["api_version"] = API_VERSION;
+                }
+
+                return $response;
+            }
+
+            
+        }catch(Exception $e){
+            $response["status"] = false;
+            $response["message"] = "Error inserting bug";
+            $response["error"] = $e->getMessage();
+            
+            if(ENVIRONMENT === 'development'){
+                $response["api_version"] = API_VERSION;
+            }
+
+            return $response;
         }
 
-        return $result;
     }
     
     private function get_bug_by_id($bug_id){

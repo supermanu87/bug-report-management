@@ -11,6 +11,9 @@ services:
       MYSQL_DATABASE: bugdb
       MYSQL_USER: reporter
       MYSQL_PASSWORD: aewqewqda
+      SITE_TITLE: Bug Reporter System
+      SITE_URL: http://37.187.176.74/
+      API_VERSION: 1.0.0
     volumes:
       - .:/var/www/html
     depends_on:

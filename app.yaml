@@ -6,11 +6,14 @@ runtime_config:
   skip_lockdown_document_root: true
 env_variables:
   # Add any environment variables needed by your application
-  CI_ENV: production
+  CI_ENVIRONMENT: production
   MYSQL_USER: bug-reporter
   MYSQL_PASSWORD: AsbvTr14234Reder
   MYSQL_DATABASE: bugdb
   MYSQL_DSN: mysql:dbname=bugdb;unix_socket=/cloudsql/bug-reporter-management:europe-west1:bugdb
+  SITE_TITLE: Bug Reporter System
+  SITE_URL: https://bug-reporter-management.ew.r.appspot.com/
+  API_VERSION: 1.0.0
 beta_settings:
   cloud_sql_instances: bug-reporter-management:europe-west1:bugdb
   

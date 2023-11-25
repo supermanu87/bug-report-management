@@ -94,8 +94,13 @@ define('EVENT_PRIORITY_NORMAL', 100);
 define('EVENT_PRIORITY_HIGH', 10);
 
 
+//Custom env variable injected
 define('MYSQL_USER', getenv('MYSQL_USER'));
 define('MYSQL_PASSWORD', getenv('MYSQL_PASSWORD'));
 define('MYSQL_DATABASE', getenv('MYSQL_DATABASE'));
 define('MYSQL_DSN', getenv('MYSQL_DSN'));
+define('ENVIRONMENT', getenv('CI_ENVIRONMENT'));
+define('SITE_TITLE', getenv('SITE_TITLE'));
+define('SITE_URL', getenv('SITE_URL'));
+define('API_VERSION', getenv('API_VERSION'));
 
