@@ -25,12 +25,12 @@ class Database extends Config
      * The default database connection.
      */
     public array $default = [
-        'DSN'          => MYSQL_DSN,
-        'hostname'     => '',
+        'DSN'          => '',
+        'hostname'     => '/cloudsql/bug-reporter-management:europe-west1:bugdb',
         'username'     => MYSQL_USER,
         'password'     => MYSQL_PASSWORD,
-        'database'     => '',
-        'DBDriver'     => 'pdo',
+        'database'     => MYSQL_DATABASE,
+        'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
         'DBDebug'      => true,
