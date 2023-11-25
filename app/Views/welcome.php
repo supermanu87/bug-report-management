@@ -49,7 +49,7 @@
                 <th scope="col">Date</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="bug_list">
             <?php foreach ($bugs as $bug): ?>
                 <tr>
                     <th scope="row"><?= $bug->id ?></th>
@@ -138,12 +138,19 @@
         success:function(response)
         {
             $('#insertModal').modal('hide');
+            
             if(response.status){
                 Swal.fire({
                 title: 'Success!',
                 text: 'Bug registered successfully',
                 icon: 'success',
                 confirmButtonText: 'Ok'
+            }).then((result) => {
+                // Check if the "OK" button is clicked
+                if (result.isConfirmed) {
+                    // Redirect to another page
+                    window.location.href = "<?=SITE_URL?>";
+                }
             });
             }else{
                 Swal.fire({
@@ -162,6 +169,7 @@
         
         
     });
+
 
 </script>
 </body>
