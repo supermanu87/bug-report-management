@@ -17,8 +17,7 @@ class BugsModel extends Model{
 
     public function list($query = null){
 
-        echo MYSQL_USER . " " . MYSQL_PASSWORD . " " . MYSQL_HOST;
-        $this->builder->select();
+       $this->builder->select();
         if($query){
             $where = "bug_description LIKE '%".$query."%' OR reporter_first_name LIKE '%".$query."%' OR reporter_last_name LIKE '%".$query."%'";
             $this->builder->where($where);
