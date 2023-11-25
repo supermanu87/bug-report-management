@@ -7,10 +7,11 @@ runtime_config:
 env_variables:
   # Add any environment variables needed by your application
   CI_ENV: production
-  MYSQL_USER: root
-  MYSQL_PASSWORD: ?)c&,P~D)97@]k}s
+  MYSQL_USER: bug-reporter
+  MYSQL_PASSWORD: AsbvTr14234Reder
   MYSQL_DATABASE: bugdb
-  MYSQL_HOST: 35.205.227.175
+  MYSQL_DSN: mysql:dbname=bugdb;unix_socket=/cloudsql/bug-reporter-management:europe-west1:bugdb
+  
 
 
 build_env_variables:

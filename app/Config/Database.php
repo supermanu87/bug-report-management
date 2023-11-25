@@ -25,12 +25,12 @@ class Database extends Config
      * The default database connection.
      */
     public array $default = [
-        'DSN'          => '',
-        'hostname'     => MYSQL_HOST,
+        'DSN'          => MYSQL_DSN,
+        'hostname'     => '',
         'username'     => MYSQL_USER,
         'password'     => MYSQL_PASSWORD,
-        'database'     => MYSQL_DATABASE,
-        'DBDriver'     => 'MySQLi',
+        'database'     => '',
+        'DBDriver'     => 'pdo',
         'DBPrefix'     => '',
         'pConnect'     => false,
         'DBDebug'      => true,
