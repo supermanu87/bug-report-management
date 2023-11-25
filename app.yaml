@@ -10,6 +10,7 @@ env_variables:
   MYSQL_USER: bug-reporter
   MYSQL_PASSWORD: Q)bv\SrTFXKhb`_g
   MYSQL_DATABASE: bugdb
+  MYSQL_HOST: 35.205.227.175
 
 
 build_env_variables:
